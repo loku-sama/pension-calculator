@@ -1,3 +1,6 @@
+# THIS IS A BETA VERSION, IT WILL KEEP GETTING UPDATED
+# AUTHOR - LOKU
+
 import PySimpleGUI as sg
 from datetime import datetime
 from dateutil import relativedelta
