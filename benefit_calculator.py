@@ -3,7 +3,6 @@ from datetime import datetime
 from dateutil import relativedelta
 
 sg.theme("BlueMono")
-
 format_date = "%d/%m/%Y"
 
 # Main menu layout start
@@ -27,7 +26,9 @@ menu_def = [
          '---',
          'About',
          '---',
-         'Fork Me on Github'
+         'Fork Me on Github',
+         '---',
+         'Check for Updates',
      ]
 
      ]
@@ -35,7 +36,7 @@ menu_def = [
 
 # App home page layout
 home_layout = [
-    [sg.Text("Basic Retirement Benefits Calculator ROPA 2019", size=(700, 3), justification="center")],
+    [sg.Text("Basic Retirement Benefits Calculator ROPA 2019", size=(700, 3), justification="center", font=(20))],
     [sg.Text("", size=(27, 5)), sg.Button("Pension", size=(30, 3), key="pen", )],
     [sg.Text("", size=(27, 5)), sg.Button("Gratuity", size=(30, 3), key="gra")],
     [sg.Text("", size=(27, 5)), sg.Button("Leave Salary", size=(30, 3), key="leave")],
@@ -58,6 +59,10 @@ user_name_pen = [
 ]
 
 # Pension calculator layout
+head_pension = [
+    [sg.Text("Pension Calculator ROPA 2019", size=(700, 1), justification="center", font=(15))],
+    [sg.HSeparator()],
+]
 first_column_pen = [
     [
         sg.Text("Date of Joining:\n(DD/MM/YYYY) "),
@@ -87,11 +92,10 @@ first_column_pen = [
     ],
     [sg.Text("", size=(0, 2))],
     [
-        sg.Text("", size=(2, 1)),
+        sg.Text("", size=(12, 1)),
         sg.Button("CALCULATE", tooltip="Click to calculate pension.", focus=True, size=(20, 1)),
-        sg.Button("REFRESH", size=(20, 1), key="pen_refresh")
+        #sg.Button("REFRESH", size=(20, 1), key="pen_refresh")
     ],
-
 ]
 second_column_pen = [
     [
@@ -124,6 +128,7 @@ footer_pen = [
         "more than 20 years.\n For more information please refer WB DCRB Rules 1978 and ROPA 2019.")],
 ]
 layout_pension = [
+    [sg.Column(head_pension, visible=True)],
     [
         sg.Column(first_column_pen, visible=True, key="pen_entry"),
         sg.VSeparator(),
@@ -132,10 +137,13 @@ layout_pension = [
     [sg.Column(footer_pen, visible=True, key="pen_footer")],
 
 ]
+
 # Gratuity calculator Layout start
-
+head_gra = [
+    [sg.Text("Gratuity Calculator ROPA 2019", size=(700, 1), justification="center", font=(15))],
+    [sg.HSeparator()],
+]
 gra_first_column = [
-
     [
         sg.Text("Date of Joining:\n(DD/MM/YYYY) "),
         sg.Text(size=(7, 3)),
@@ -172,7 +180,6 @@ gra_first_column = [
         sg.Text("", size=(15, 1)),
         sg.Button("CALCULATE", key="cal_gra", tooltip="Click to calculate Gratuity.", focus=True, size=(20, 1)),
     ],
-
 ]
 gra_second_col = [
     [
@@ -203,19 +210,24 @@ gra_footer = [
 ]
 
 gra_layout = [
+    [sg.Column(head_gra, visible=True)],
     [sg.Column(gra_first_column, visible=True, ),
      sg.VSeparator(),
      sg.Column(gra_second_col, visible=True)],
     [sg.Column(gra_footer, visible=True)]
 ]
-# Leave salary calculator layout
 
+# Leave salary calculator layout
+head_leave= [
+    [sg.Text("Leave Salary Calculator ROPA 2019", size=(700, 1), justification="center", font=(15))],
+    [sg.HSeparator()],
+]
 leave_first_column = [
     [
         sg.Text("Leave Due At Credit as on Retirement\nOr Death(Not greater than 300):"),
         sg.Text(size=(5, 3)),
         sg.Input(key="leave-due", size=(12, 3), disabled=False, default_text=int(0), border_width=2,
-                 tooltip="Minimum basic pay is Rs.17000"),
+                 tooltip="Maximum leave due must not exceed 300 days."),
     ],
     [
         sg.Text("Last Basic Pay:"),
@@ -237,14 +249,13 @@ leave_first_column = [
         sg.Input(key="ma", size=(28, 2), disabled=True, default_text=int(0), border_width=2)
     ],
     [
-        sg.Text("", size=(0, 2)),
+        sg.Text("", size=(0, 0)),
     ],
     [
         sg.Text("", size=(15, 1)),
         sg.Button("CALCULATE", key="cal_leave", tooltip="Click to calculate Leave Salary.", focus=True, size=(20, 1)),
     ],
 ]
-
 leave_second_column = [
     [
         sg.Text("Last Pay Drawn (Basic+DA+MA): ", size=(25, 2)),
@@ -253,7 +264,6 @@ leave_second_column = [
     [sg.Text("Total Leave Salary : ", size=(25, 2))],
     [sg.Input(" ", size=(45, 2), disabled=True, key="leave-sal")],
 ]
-
 leave_footer = [
     [sg.HSeparator()],
     [sg.Text("Important Notes: ")],
@@ -270,6 +280,7 @@ leave_footer = [
 ]
 
 leave_calculator_layout = [
+    [sg.Column(head_leave, visible=True)],
     [sg.Column(leave_first_column, visible=True),
      sg.VSeparator(),
      sg.Column(leave_second_column, visible=True),
@@ -285,13 +296,12 @@ main_layout = [
      sg.Column(gra_layout, key="gra_display", visible=False),
      sg.Column(leave_calculator_layout, key="leave_cal", visible=False)],
 ]
-window = sg.Window("Basic Retirement Benefits Calculator (WB Govt.)", main_layout, size=(755, 600), resizable=False,
+window = sg.Window("Basic Retirement Benefits  for employees of WB Govt.", main_layout, size=(755, 600), resizable=False,
                    icon=r'E:\SOURAV ATO\Python\icon.ico', )
 new_menu_def = menu_def
 values_dict = {}
 while True:
     event, values = window.read()
-
     if event == "Exit" or event == sg.WIN_CLOSED:
         break
 
@@ -324,25 +334,30 @@ while True:
             sg.Popup("Please Enter Your Name.")
 
     if event == "About":
-        sg.Popup("Basic Retirement Benefits Calculator for employees of Govt. of West Bengal.\nVersion - 1.01(beta)\n"
-                 "App coded by Sourav. \nApp programmed on the basis of latest Govt. rules and Orders."
-                 "\nThis is for informational purpose only. Please refer original documents and order thoroughly.",
+        sg.Popup("Basic Retirement Benefits Calculator for employees of Govt. of West Bengal.\nVersion - 1.01\n"
+                 "App coded by SOURAV, Language- Python.\nApp programmed on the basis of latest Govt. rules and Orders."
+                 "\nThis is for informational purpose only. Please refer original documents and order thoroughly.\n"
+                 "This application is Open Source and licensed under GNU Public License V.3. You can download the"
+                 " source code from Github.",
                  title="About",
                  icon=r'E:\SOURAV ATO\Python\icon.ico')
+    if event == 'Fork Me on Github':
+        sg.webbrowser.open(url='https://github.com/loku-sama', new=2, )
+    if event == 'Check for Updates':
+        sg.webbrowser.open(url='https://github.com/loku-sama/pension-calculator', new=2, )
+    if event == 'Rules and Orders':
+        sg.webbrowser.open(url='http://www.wbfin.nic.in/New_Fin/Pages/Publication.aspx', new=2, )
 
     format_new = "%d/%m/%Y"
-
     qua_service_in_months = 0
-    # qua_service_in_months_gra = 0
     commutation = 0
     pension = 0
     basic_pension = 0
     family_pension = 0
 
-
     def qualifying_ins_calculation():
+        """ Function for calculating the net qualifying service period in 6 monthly installments. """
         global qua_service_in_months, mon
-
         if (mon >= 3) and (mon < 6):
             qua_service_in_months = six_monthly_installament + 1
         elif (mon >= 6) and (mon < 9):
@@ -353,8 +368,6 @@ while True:
             qua_service_in_months = six_monthly_installament
         return qua_service_in_months
 
-
-    # basic_pay = int(values['basic'])
     if event == "pen_refresh":
         window.refresh()
     if event == "CALCULATE":
@@ -369,25 +382,21 @@ while True:
             qua_service_in_months = 0
             basic_pay = float(values['basic'])
 
-
             def check_basic_pay(n):
+                """ Function for checking the minimum basic pay as per ROPA 2019. """
                 global basic_pay
                 if n < 17000:
                     sg.Popup("Basic Pay can not be less than Rs.17000 as per ROPA 2019", title="Error!",
                              icon=r'E:\SOURAV ATO\Python\icon.ico')
-                    # check_basic_pay(basic_pay)
                 elif n >= 17000:
                     n = basic_pay
                 return n
 
-
             check_basic_pay(basic_pay)
             window['q_service'].update("{} years {} months".format(year, mon))
-            # window["xx"].update(basic_pay)
             if year < 10:
                 sg.Popup("Sorry! You are not eligible for Regular Pension.", title="Error!",
                          icon=r'E:\SOURAV ATO\Python\icon.ico')
-                # window['xx'].update("Not Applicable")
                 family_pension = round((basic_pay * 30) / 100)
             elif year > 20:
                 qua_service_in_months = 40
@@ -396,24 +405,21 @@ while True:
                 qualifying_ins_calculation()
                 window['xx'].update(qua_service_in_months)
 
-
             def check_commutation():
+                """ Function for checking the pension commutation limits as per ROPA 2019. """
                 global commutation
                 com = int(values['comm'])
                 if com > 40:
                     sg.Popup("Commutation must not exceed 40%. Try again.", title="Error!",
                              icon=r'E:\SOURAV ATO\Python\icon.ico')
                     commutation = 100
-                    # check_commutation()
                 else:
                     commutation = com
                 return commutation
-
-
             check_commutation()
 
-
             def get_pension(a, b):
+                """ Function for calculating basic pension. """
                 global pension
                 global basic_pension
                 if 20 < qua_service_in_months < 40 and commutation <= 40:
@@ -428,14 +434,11 @@ while True:
                 elif qua_service_in_months >= 40 and commutation > 40:
                     basic_pension = a / 2
                     # pension = 0
-
                 return basic_pension
-
-
             get_pension(basic_pay, commutation)
 
-
             def determine_basic_pension(pen):
+                """ Function for calculating minimum and maximum pension limit. """
                 if pen < 8500 and year >= 10 and basic_pay >= 17000:
                     bpen = 8500
                 elif pen > 100500 and year >= 10 and basic_pay >= 17000:
@@ -446,27 +449,24 @@ while True:
                     bpen = 0
                 return round(bpen)
 
-
-            # sg.Popup("Your Basic Pension is: ",determine_basic_pension(basic_pension))
             window['Bpen'].update(round(determine_basic_pension(basic_pension)))
-            # reduced_pension = determine_basic_pension(pension)
             final_basic_pension = determine_basic_pension(basic_pension)
 
-
             def determine_reduced_pension(pen, com):
+                """ Function for calculating reduced basic pension. """
                 global pension
                 if com == 0:
                     pension = round(pen)
                 elif 1 <= com <= 40:
                     pension = round(pen - (pen * com / 100))
                 elif com > 40:
-
                     pension = "Error! Commutation must not exceed 40%."
                 return pension
 
             window['Rpen'].update(determine_reduced_pension(final_basic_pension, commutation))
 
             def get_family_pension(pay):
+                """ Function for calculating Family pension. """
                 global family_pension
                 if basic_pay >= 17000 and (year < 10 or year >= 10):
                     family_pension = pay * 30 / 100
@@ -486,13 +486,12 @@ while True:
                     family_pension = 0
                 return round(family_pension)
 
-
             window['Fpen'].update(get_family_pension(basic_pay))
-
         except:
             sg.Popup("Please enter values in proper format.\n Ex- Dates in DD/MM/YYYY Format", title="Error!",
                      icon=r'E:\SOURAV ATO\Python\icon.ico')
-
+# Start of Gratuity calculator Functions:
+    
     if event == "cal_gra":
         try:
             doa = datetime.strptime(values["dojPick1"], format_new)
@@ -510,7 +509,6 @@ while True:
             death_gratuity = 0
             retiring_gratuity = 0
 
-
             def qualifying_ins_calculation_gratuity():
                 global qua_service_in_months_gra
                 if (mon >= 3) and (mon < 6):
@@ -523,7 +521,6 @@ while True:
                     qua_service_in_months_gra = six_monthly_installment
                 return qua_service_in_months_gra
 
-
             def check_basic_pay(n):
                 global basic_pay
                 if n < 17000:
@@ -532,7 +529,6 @@ while True:
                 elif n >= 17000:
                     n = basic_pay
                 return n
-
 
             check_basic_pay(basic_pay)
             window['q_service1'].update("{} years {} months".format(year, mon))
@@ -543,40 +539,38 @@ while True:
                 qualifying_ins_calculation_gratuity()
                 window['xx1'].update(qua_service_in_months_gra)
 
-
             def get_retiring_gratuity(y, tp):
                 global retiring_gratuity
-                if y < 10:
+                if y < 10 and basic_pay >= 17000:
                     retiring_gratuity = round((tp * qua_service_in_months_gra) / 2)
-                elif y >= 10:
+                elif y >= 10 and basic_pay >= 17000:
                     retiring_gratuity = round((tp * qua_service_in_months_gra) / 4)
+                else:
+                    retiring_gratuity = 0
                 return round(retiring_gratuity)
-
             get_retiring_gratuity(year, total_pay)
 
             def get_death_gratuity(y, tp):
                 global death_gratuity
-                if y < 1:
+                if y < 1 and basic_pay >= 17000:
                     death_gratuity = 2 * tp
-                elif 1 <= y < 5:
+                elif 1 <= y < 5 and basic_pay >= 17000:
                     death_gratuity = 6 * tp
-                elif 5 <= y < 11:
+                elif 5 <= y < 11 and basic_pay >= 17000:
                     death_gratuity = 12 * tp
-                elif 11 <= y < 20:
+                elif 11 <= y < 20 and basic_pay >= 17000:
                     death_gratuity = 20 * tp
-                elif y >= 20:
+                elif y >= 20 and basic_pay >= 17000:
                     death_gratuity = (tp * qua_service_in_months_gra) / 2
+                else:
+                    death_gratuity = 0
                 return round(death_gratuity)
-
-
             get_death_gratuity(year, total_pay)
-
 
             def check_gratuity(gra):
                 if gra > 1200000:
                     gra = 1200000
                 return gra
-
 
             window['Rgra'].update(check_gratuity(retiring_gratuity))
             window['Dgra'].update(check_gratuity(death_gratuity))
@@ -628,14 +622,15 @@ while True:
                     sg.Popup("Maximum leave due can not exceed 300 days.", title="Error!",
                              icon=r'E:\SOURAV ATO\Python\icon.ico')
                     window['leave-sal'].update("Error! Leave due exceeds 300 days. Try again.")
-                else:
+                elif leave_due <= 300 and basic_pay >= 17000:
                     leave_salary = round((tp * leave)/30)
-                    window['leave-sal'].update(leave_salary)
+                    # window['leave-sal'].update(leave_salary)
+                else:
+                    leave_salary = 0
                 return leave_salary
             calculate_leave_salary(total_pay, leave_due)
-
+            window['leave-sal'].update(leave_salary)
         except:
             sg.Popup("Please enter values in proper format.", title="Error!",
                      icon=r'E:\SOURAV ATO\Python\icon.ico')
-
 window.close()
