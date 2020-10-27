@@ -6,3 +6,7 @@ This project is open source under GNU public lisence v3.0
  # How to Install :
  1. Download the zip archive file and unzip it. 
  1. Run the windows exe(executable) file, no need to install the app.
+
+# Important :
+If you are a regular user, just download the .exe file to run the application.
+If you want to check the source code and want to build something better, please download the benefit_calculator.py file and its dependencies.
