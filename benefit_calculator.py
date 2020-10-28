@@ -385,19 +385,6 @@ while True:
     basic_pension = 0
     family_pension = 0
 
-    # def qualifying_ins_calculation():
-    #     """ Function for calculating the net qualifying service period in 6 monthly installments. """
-    #     global qua_service_in_months, mon
-    #     if (mon >= 3) and (mon < 6):
-    #         qua_service_in_months = six_monthly_installament + 1
-    #     elif (mon >= 6) and (mon < 9):
-    #         qua_service_in_months = six_monthly_installament + 1
-    #     elif (mon >= 9) and (mon < 12):
-    #         qua_service_in_months = six_monthly_installament + 2
-    #     else:
-    #         qua_service_in_months = six_monthly_installament
-    #     return qua_service_in_months
-
     if event == "CALCULATE":
         try:
             doa = datetime.strptime(values["dojPick"], format_new)
