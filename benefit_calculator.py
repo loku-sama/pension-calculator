@@ -1,10 +1,12 @@
 # THIS IS A BETA VERSION, IT WILL KEEP GETTING UPDATED
 # AUTHOR - LOKU
 
+# Start of import section
 import PySimpleGUI as sg
 from datetime import datetime
 from dateutil import relativedelta
 
+# Main theme of the Application
 sg.theme("BlueMono")
 format_date = "%d/%m/%Y"
 
