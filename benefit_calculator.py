@@ -50,17 +50,18 @@ menu_def = [
 
 # App home page layout
 home_layout = [
-    [sg.Text("Basic Retirement Benefits Calculator ROPA 2019", size=(700, 3), justification="center", font=(20))],
+    [sg.Text("Basic Retirement Benefits Calculator ( As per ROPA 2019)", size=(700, 3), justification="center", font=(20))],
     [sg.Text("", size=(27, 5)), sg.Button("Pension", size=(30, 3), key="pen", )],
     [sg.Text("", size=(27, 5)), sg.Button("Gratuity", size=(30, 3), key="gra")],
     [sg.Text("", size=(27, 5)), sg.Button("Leave Salary", size=(30, 3), key="leave")],
     [sg.HSeparator()],
-    [sg.Text("How to use :", font=(0.5), size=(55, 1)), sg.Button(button_text="Source Code", key="git", tooltip="Click here to check the source code.")],
+    [sg.Text("How to use :", font=(0.5), size=(55, 1)), sg.Button(button_text="Source Code", key="git",
+                                                                  tooltip="Click here to check the source code.")],
     [sg.Text("1. Select any type of calculator from the main menu.\n2. Enter valid data in the given input fields."
              "\n3. Check your results in the output fields, As simple as that.")],
     [sg.Text("Notice :", font=(0.5))],
-    [sg.Text("This is a complete free and open source project."),sg.Text("Support Free-Software-movement.",
-    size=(40, 1), key="fsm", tooltip="Click here", font=("u"), enable_events=True),
+    [sg.Text("This is a complete free and open source project."), sg.Text("Support Free-Software-movement.",
+             size=(40, 1), key="fsm", tooltip="Click here to know more.", font=("u"), enable_events=True),
     ]
 ]
 
@@ -385,6 +386,19 @@ while True:
     basic_pension = 0
     family_pension = 0
 
+    # def qualifying_ins_calculation():
+    #     """ Function for calculating the net qualifying service period in 6 monthly installments. """
+    #     global qua_service_in_months, mon
+    #     if (mon >= 3) and (mon < 6):
+    #         qua_service_in_months = six_monthly_installament + 1
+    #     elif (mon >= 6) and (mon < 9):
+    #         qua_service_in_months = six_monthly_installament + 1
+    #     elif (mon >= 9) and (mon < 12):
+    #         qua_service_in_months = six_monthly_installament + 2
+    #     else:
+    #         qua_service_in_months = six_monthly_installament
+    #     return qua_service_in_months
+
     if event == "CALCULATE":
         try:
             doa = datetime.strptime(values["dojPick"], format_new)
@@ -685,13 +699,13 @@ while True:
                     window['leave-sal'].update("Error! Leave due exceeds 300 days. Try again.")
                 elif leave_due <= 300 and basic_pay >= 17000:
                     leave_salary = round((tp * leave) / 30)
+                    window['leave-sal'].update(leave_salary)
                 else:
                     leave_salary = 0
+                    window['leave-sal'].update(leave_salary)
                 return leave_salary
 
-
             calculate_leave_salary(total_pay, leave_due)
-            window['leave-sal'].update(leave_salary)
         except:
             sg.Popup("Please enter values in proper format.", title="Error!",
                      icon=r'E:\SOURAV ATO\Python\icon.ico')
