@@ -1,14 +1,14 @@
 """
- ################################################READ ME##############################################
- #A simple retirement benefit calculator app written in Python and for GUI I used PySimpleGUI module.#
- #This application is open source under GNU Licence v.3.                                             #
- #For any feedback or bug reporting, contact me at github - https://github.com/loku-sama             #
- #Author : Sourav (Loku), A newbie coder.                                                            #
- #Dependencies to run the code : 1. Python3                                                          #
- #                               2. PySimpleGUI module                                               #
- #                               3. Dateutil module                                                  #
- #                               4. Default datetime (optional)                                      #
- #####################################################################################################
+ #############################################   READ ME   ############################################
+ # A simple retirement benefit calculator app written in Python and for GUI I used PySimpleGUI module #
+ # This application is open source under GNU License v.3.                                             #
+ # For any feedback or bug reporting, contact me at github - https://github.com/loku-sama             #
+ # Author : SOURAV (Loku), A newbie coder.                                                            #
+ # Dependencies to run the code : 1. Python3                                                          #
+ #                                2. PySimpleGUI module                                               #
+ #                                3. Dateutil module                                                  #
+ #                                4. Default datetime module (optional)                               #
+ ######################################################################################################
 """
 
 # Start of Import section
@@ -50,19 +50,24 @@ menu_def = [
 
 # App home page layout
 home_layout = [
-    [sg.Text("Basic Retirement Benefits Calculator ( As per ROPA 2019)", size=(700, 3), justification="center", font=(20))],
+    [sg.Text("Basic Retirement Benefits Calculator ( As per ROPA 2019)", size=(700, 3), justification="center",
+             font=(20))],
     [sg.Text("", size=(27, 5)), sg.Button("Pension", size=(30, 3), key="pen", )],
     [sg.Text("", size=(27, 5)), sg.Button("Gratuity", size=(30, 3), key="gra")],
     [sg.Text("", size=(27, 5)), sg.Button("Leave Salary", size=(30, 3), key="leave")],
     [sg.HSeparator()],
     [sg.Text("How to use :", font=(0.5), size=(55, 1)), sg.Button(button_text="Source Code", key="git",
                                                                   tooltip="Click here to check the source code.")],
-    [sg.Text("1. Select any type of calculator from the main menu.\n2. Enter valid data in the given input fields."
-             "\n3. Check your results in the output fields, As simple as that.")],
+    [sg.Text("1. This is an OFFLINE app, so no need of Internet Connection. Just select any type of calculator from the"
+             " main menu.\n2. Enter valid data in the given input fields and click CALCULATE button." 
+             "\n3. Check your results in the output "
+             "fields, As simple as that. More features will be added in future releases.")],
     [sg.Text("Notice :", font=(0.5))],
-    [sg.Text("This is a complete free and open source project."), sg.Text("Support Free-Software-movement.",
-             size=(40, 1), key="fsm", tooltip="Click here to know more.", font=("u"), enable_events=True),
-    ]
+    [sg.Text("This is a complete free and open source project."), sg.Text("Free-Software-movement (Click Here)",
+                                                                          size=(40, 1), key="fsm",
+                                                                          tooltip="Click here to know more.",
+                                                                          font=("u"), enable_events=True),
+     ]
 ]
 
 # Global username layout
@@ -81,7 +86,7 @@ user_name_pen = [
 
 # Pension calculator layout
 head_pension = [
-    [sg.Text("Pension Calculator ROPA 2019", size=(700, 1), justification="center", font=(15))],
+    [sg.Text("Basic Pension Calculator (ROPA 2019)", size=(700, 1), justification="center", font=(15))],
     [sg.HSeparator()],
 ]
 first_column_pen = [
@@ -165,7 +170,7 @@ layout_pension = [
 
 # Gratuity calculator Layout start
 head_gra = [
-    [sg.Text("Gratuity Calculator ROPA 2019", size=(700, 1), justification="center", font=(15))],
+    [sg.Text("Gratuity Calculator (ROPA 2019)", size=(700, 1), justification="center", font=(15))],
     [sg.HSeparator()],
 ]
 gra_first_column = [
@@ -245,7 +250,7 @@ gra_layout = [
 
 # Leave salary calculator layout
 head_leave = [
-    [sg.Text("Leave Salary Calculator ROPA 2019", size=(700, 1), justification="center", font=(15))],
+    [sg.Text("Leave Salary Calculator (ROPA 2019)", size=(700, 1), justification="center", font=(15))],
     [sg.HSeparator()],
 ]
 leave_first_column = [
@@ -297,7 +302,7 @@ leave_footer = [
         "2. Leave salary calculation should be done on the basis of last month's pay of the employee.")],
     [sg.Text(
         "3. In case an employee resigns or quits from service, he will be granted leave encashment for a period not "
-        "exceeding\n    half the E.L. due not exceeding 150 days.")],
+        "exceeding\n    half the E.L. due subject to maximum limit not exceeding 150 days.")],
     [sg.Text("4. Leave due includes- i. Earned Leave, ii. Half Pay Leave, iii. Commuted Leave, iv. Leave not due, v. "
              "Extraordinary\n    Leave. Please refer "
              "Rule 168A, 168B & 168C of W.B.S.R. Part-I for more information.")]
@@ -320,7 +325,7 @@ main_layout = [
      sg.Column(gra_layout, key="gra_display", visible=False),
      sg.Column(leave_calculator_layout, key="leave_cal", visible=False)],
 ]
-window = sg.Window("Basic Retirement Benefits  for employees of WB Govt.", main_layout, size=(755, 600),
+window = sg.Window("Basic Retirement Benefits  for employees of WB Govt. (Offline Application)", main_layout, size=(755, 600),
                    resizable=False,
                    icon=r'E:\SOURAV ATO\Python\icon.ico', )
 new_menu_def = menu_def
@@ -329,7 +334,7 @@ new_menu_def = menu_def
 while True:
     event, values = window.read()
     if event == "Exit" or event == sg.WIN_CLOSED:
-        break
+        break  # Breaks the main loop if the user closes the window
 
     if event == 'Home':
         window['pen_display'].update(visible=False)
@@ -354,7 +359,17 @@ while True:
     if event == "git":
         sg.webbrowser.open(url='https://github.com/loku-sama/pension-calculator', new=2)
     if event == "fsm":
-        sg.webbrowser.open(url='https://en.wikipedia.org/wiki/Free_software_movement', new=2)
+        # sg.webbrowser.open(url='https://en.wikipedia.org/wiki/Free_software_movement', new=2)
+        sg.Popup("The free software movement is a social movement with the goal of obtaining and guaranteeing certain "
+                 "freedoms for software users, namely the freedom to run the software, to study the software, "
+                 "to modify the software, to share possibly modified copies of the software. Software which "
+                 "meets these requirements is termed free software. The word 'free' is ambiguous in English, "
+                 "although in this context, it means 'free as in freedom', not 'free as in zero price'."
+                 "\nSource: Wikipedia", title="Free "
+                                              "Software Movement", custom_text="Close",
+                 icon=r'E:\SOURAV ATO\Python\icon.ico', )
+        if event == 'ok':
+            sg.webbrowser.open(url='https://en.wikipedia.org/wiki/Free_software_movement', new=2)
 
     if event == "Submit":
         name = values['name']
@@ -375,7 +390,7 @@ while True:
     if event == 'Fork Me on Github':
         sg.webbrowser.open(url='https://github.com/loku-sama', new=2, )
     if event == 'Check for Updates':
-        sg.webbrowser.open(url='https://github.com/loku-sama/pension-calculator', new=2, )
+        sg.webbrowser.open(url='https://github.com/loku-sama/pension-calculator/releases/', new=2, )
     if event == 'Rules and Orders':
         sg.webbrowser.open(url='http://www.wbfin.nic.in/New_Fin/Pages/Publication.aspx', new=2, )
 
@@ -385,19 +400,6 @@ while True:
     pension = 0
     basic_pension = 0
     family_pension = 0
-
-    # def qualifying_ins_calculation():
-    #     """ Function for calculating the net qualifying service period in 6 monthly installments. """
-    #     global qua_service_in_months, mon
-    #     if (mon >= 3) and (mon < 6):
-    #         qua_service_in_months = six_monthly_installament + 1
-    #     elif (mon >= 6) and (mon < 9):
-    #         qua_service_in_months = six_monthly_installament + 1
-    #     elif (mon >= 9) and (mon < 12):
-    #         qua_service_in_months = six_monthly_installament + 2
-    #     else:
-    #         qua_service_in_months = six_monthly_installament
-    #     return qua_service_in_months
 
     if event == "CALCULATE":
         try:
@@ -438,7 +440,6 @@ while True:
                     n = basic_pay
                 return n
 
-
             check_basic_pay(basic_pay)
             window['total-pay-pen'].update(total_pay)
             window['q_service'].update("{} years {} months".format(year, mon))
@@ -469,7 +470,6 @@ while True:
                     commutation = com
                 return commutation
 
-
             check_commutation()
 
 
@@ -487,7 +487,6 @@ while True:
                     basic_pension = a / 2
                 return basic_pension
 
-
             get_pension(total_pay, commutation)
 
 
@@ -503,7 +502,6 @@ while True:
                     bpen = 0
                 return round(bpen)
 
-
             window['Bpen'].update(round(determine_basic_pension(basic_pension)))
             final_basic_pension = determine_basic_pension(basic_pension)
 
@@ -518,7 +516,6 @@ while True:
                 elif com > 40:
                     pension = "Error! Commutation must not exceed 40%."
                 return pension
-
 
             window['Rpen'].update(determine_reduced_pension(final_basic_pension, commutation))
 
@@ -543,7 +540,6 @@ while True:
                 else:
                     family_pension = 0
                 return round(family_pension)
-
 
             window['Fpen'].update(get_family_pension(total_pay))
         except:
@@ -570,6 +566,7 @@ while True:
 
 
             def qualifying_ins_calculation_gratuity():
+                """ Function for calculating the net qualifying service period in 6 monthly installments. """
                 global qua_service_in_months_gra
                 if (mon >= 3) and (mon < 6):
                     qua_service_in_months_gra = six_monthly_installment + 1
@@ -583,6 +580,7 @@ while True:
 
 
             def check_basic_pay(n):
+                """ Function for checking minimum basic pay as per ROPA 2019. """
                 global basic_pay
                 if n < 17000:
                     sg.Popup("Basic Pay can not be less than Rs.17000 as per ROPA 2019", title="Error!",
@@ -590,7 +588,6 @@ while True:
                 elif n >= 17000:
                     n = basic_pay
                 return n
-
 
             check_basic_pay(basic_pay)
             window['total-pay-gra'].update(total_pay)
@@ -604,6 +601,7 @@ while True:
 
 
             def get_retiring_gratuity(y, tp):
+                """ Function for calculating the retiring Gratuity amount. """
                 global retiring_gratuity
                 if y < 10 and basic_pay >= 17000:
                     retiring_gratuity = round((tp * qua_service_in_months_gra) / 2)
@@ -613,11 +611,11 @@ while True:
                     retiring_gratuity = 0
                 return round(retiring_gratuity)
 
-
             get_retiring_gratuity(year, total_pay)
 
 
             def get_death_gratuity(y, tp):
+                """ Function for calculating the death Gratuity amount. """
                 global death_gratuity
                 if y < 1 and basic_pay >= 17000:
                     death_gratuity = 2 * tp
@@ -633,15 +631,14 @@ while True:
                     death_gratuity = 0
                 return round(death_gratuity)
 
-
             get_death_gratuity(year, total_pay)
 
 
             def check_gratuity(gra):
+                """ Function for checking maximum limit of Gratuity amount as per ROPA 2019. """
                 if gra > 1200000:
                     gra = 1200000
                 return gra
-
 
             window['Rgra'].update(check_gratuity(retiring_gratuity))
             window['Dgra'].update(check_gratuity(death_gratuity))
@@ -669,6 +666,7 @@ while True:
 
 
             def check_basic_pay(n):
+                """ Function for checking minimum basic pay as per ROPA 2019. """
                 global basic_pay
                 if n < 17000:
                     sg.Popup("Basic Pay can not be less than Rs.17000 as per ROPA 2019", title="Error!",
@@ -676,7 +674,6 @@ while True:
                 elif n >= 17000:
                     n = basic_pay
                 return n
-
 
             check_basic_pay(basic_pay)
 
@@ -692,6 +689,7 @@ while True:
 
 
             def calculate_leave_salary(tp, leave):
+                """ Function for calculating leave salary amount. """
                 global leave_salary, leave_due
                 if leave_due > 300:
                     sg.Popup("Maximum leave due can not exceed 300 days.", title="Error!",
