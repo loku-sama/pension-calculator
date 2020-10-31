@@ -56,7 +56,7 @@ home_layout = [
     [sg.Text("", size=(27, 5)), sg.Button("Gratuity", size=(30, 3), key="gra")],
     [sg.Text("", size=(27, 5)), sg.Button("Leave Salary", size=(30, 3), key="leave")],
     [sg.HSeparator()],
-    [sg.Text("How to use :", font=(0.5), size=(55, 1)), sg.Button(button_text="Source Code", key="git",
+    [sg.Text("How to use :", font=(0.5), size=(67, 1)), sg.Button(button_text="Source Code", key="git",
                                                                   tooltip="Click here to check the source code.")],
     [sg.Text("1. This is an OFFLINE app, so no need of Internet Connection. Just select any type of calculator from the"
              " main menu.\n2. Enter valid data in the given input fields and click CALCULATE button." 
@@ -327,7 +327,7 @@ main_layout = [
 ]
 window = sg.Window("Basic Retirement Benefits  for employees of WB Govt. (Offline Application)", main_layout, size=(755, 600),
                    resizable=False,
-                   icon=r'E:\SOURAV ATO\Python\icon.ico', )
+                   icon=r'icon.ico', )
 new_menu_def = menu_def
 
 # Start of main loop
@@ -367,7 +367,7 @@ while True:
                  "although in this context, it means 'free as in freedom', not 'free as in zero price'."
                  "\nSource: Wikipedia", title="Free "
                                               "Software Movement", custom_text="Close",
-                 icon=r'E:\SOURAV ATO\Python\icon.ico', )
+                 icon=r'icon.ico', )
         if event == 'ok':
             sg.webbrowser.open(url='https://en.wikipedia.org/wiki/Free_software_movement', new=2)
 
@@ -386,7 +386,7 @@ while True:
                  " source code from Github. \nThis app will get updated in case of any change in rules and orders. "
                  " Always download the latest release from the Github page.",
                  title="About",
-                 icon=r'E:\SOURAV ATO\Python\icon.ico', )
+                 icon=r'icon.ico', )
     if event == 'Fork Me on Github':
         sg.webbrowser.open(url='https://github.com/loku-sama', new=2, )
     if event == 'Check for Updates':
@@ -435,7 +435,7 @@ while True:
                 global basic_pay
                 if n < 17000:
                     sg.Popup("Basic Pay can not be less than Rs.17000 as per ROPA 2019", title="Error!",
-                             icon=r'E:\SOURAV ATO\Python\icon.ico')
+                             icon=r'icon.ico')
                 elif n >= 17000:
                     n = basic_pay
                 return n
@@ -449,7 +449,7 @@ while True:
                 window['xx'].update(qua_service_in_months)
                 family_pension = round((total_pay * 30) / 100)
                 sg.Popup("Sorry! You are not eligible for Regular Pension.", title="Error!",
-                         icon=r'E:\SOURAV ATO\Python\icon.ico')
+                         icon=r'icon.ico')
             elif year > 20:
                 qua_service_in_months = 40
                 window['xx'].update(qua_service_in_months)
@@ -464,7 +464,7 @@ while True:
                 com = int(values['comm'])
                 if com > 40:
                     sg.Popup("Commutation must not exceed 40%. Try again.", title="Error!",
-                             icon=r'E:\SOURAV ATO\Python\icon.ico')
+                             icon=r'icon.ico')
                     commutation = 100
                 else:
                     commutation = com
@@ -544,7 +544,7 @@ while True:
             window['Fpen'].update(get_family_pension(total_pay))
         except:
             sg.Popup("Please enter values in proper format.\n Ex- Dates in DD/MM/YYYY Format", title="Error!",
-                     icon=r'E:\SOURAV ATO\Python\icon.ico')
+                     icon=r'icon.ico')
 
     # Start of Gratuity calculator Functions:
     if event == "cal_gra":
@@ -584,7 +584,7 @@ while True:
                 global basic_pay
                 if n < 17000:
                     sg.Popup("Basic Pay can not be less than Rs.17000 as per ROPA 2019", title="Error!",
-                             icon=r'E:\SOURAV ATO\Python\icon.ico')
+                             icon=r'icon.ico')
                 elif n >= 17000:
                     n = basic_pay
                 return n
@@ -645,7 +645,7 @@ while True:
 
         except:
             sg.Popup("Please enter values in proper format.\n Ex- Dates in DD/MM/YYYY Format", title="Error!",
-                     icon=r'E:\SOURAV ATO\Python\icon.ico')
+                     icon=r'icon.ico')
 
     if event == "wbhs-no":
         ma = 500
@@ -670,7 +670,7 @@ while True:
                 global basic_pay
                 if n < 17000:
                     sg.Popup("Basic Pay can not be less than Rs.17000 as per ROPA 2019", title="Error!",
-                             icon=r'E:\SOURAV ATO\Python\icon.ico')
+                             icon=r'icon.ico')
                 elif n >= 17000:
                     n = basic_pay
                 return n
@@ -693,7 +693,7 @@ while True:
                 global leave_salary, leave_due
                 if leave_due > 300:
                     sg.Popup("Maximum leave due can not exceed 300 days.", title="Error!",
-                             icon=r'E:\SOURAV ATO\Python\icon.ico')
+                             icon=r'icon.ico')
                     window['leave-sal'].update("Error! Leave due exceeds 300 days. Try again.")
                 elif leave_due <= 300 and basic_pay >= 17000:
                     leave_salary = round((tp * leave) / 30)
@@ -706,5 +706,5 @@ while True:
             calculate_leave_salary(total_pay, leave_due)
         except:
             sg.Popup("Please enter values in proper format.", title="Error!",
-                     icon=r'E:\SOURAV ATO\Python\icon.ico')
+                     icon=r'icon.ico')
 window.close()  # Closes the main window if loop ends.
