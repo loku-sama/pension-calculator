@@ -4,7 +4,7 @@
  # This application is open source under GNU License v.3.                                             #
  # For any feedback or bug reporting, contact me at github - https://github.com/loku-sama             #
  # Author : SOURAV (Loku), A newbie coder.                                                            #
- # Dependencies to run the code : 1. Python3                                                          #
+ # Dependencies needed to run the code : 1. Python3                                                   #
  #                                2. PySimpleGUI module                                               #
  #                                3. Dateutil module                                                  #
  #                                4. Default datetime module (optional)                               #
