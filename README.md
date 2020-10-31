@@ -4,8 +4,11 @@ This app is not associated with Govt. of West Bengal. This app is for informatio
 This project is open source under GNU public lisence v3.0
  
  # How to Install :
- 1. Download the zip archive file and unzip it. 
- 1. Run the windows exe(executable) file, no need to install the app.
+  # For Windows OS :
+    1. Download the zip archive file for Windows and unzip it. 
+    2. Run the windows exe(executable) file, no need to install the app.
+  # For Linux OS :
+    Coming Soon.
  
  # Features :
  1. This is an Offline application, so no need of an Internet connection.
