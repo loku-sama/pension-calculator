@@ -359,7 +359,6 @@ while True:
     if event == "git":
         sg.webbrowser.open(url='https://github.com/loku-sama/pension-calculator', new=2)
     if event == "fsm":
-        # sg.webbrowser.open(url='https://en.wikipedia.org/wiki/Free_software_movement', new=2)
         sg.Popup("The free software movement is a social movement with the goal of obtaining and guaranteeing certain "
                  "freedoms for software users, namely the freedom to run the software, to study the software, "
                  "to modify the software, to share possibly modified copies of the software. Software which "
