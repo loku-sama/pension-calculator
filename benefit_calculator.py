@@ -7,7 +7,7 @@
  # Dependencies needed to run the code : 1. Python3                                                   #
  #                                2. PySimpleGUI module                                               #
  #                                3. Dateutil module                                                  #
- #                                4. Default datetime module (optional)                               #
+ #                                4. Default datetime module                                          #
  ######################################################################################################
 """
 
