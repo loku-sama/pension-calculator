@@ -12,9 +12,10 @@ This project is open source under GNU public lisence v3.0
  
  # Features :
  1. This is an Offline application, so no need of an Internet connection.
- 2. Easy to use, just input required data and click on calculate button.
- 3. Updated on the basis of the latest Govt. rules and orders (ROPA 2019).
- 4. This application is completely free and open source.
+ 2. Basic Pension, Gratuity (Retiring and Death) and Leave Salary Calculators in one application.
+ 3. Easy to use, just input required data and click on calculate button.
+ 4. Updated on the basis of the latest Govt. rules and orders (ROPA 2019).
+ 5. This application is completely free and open source.
 
 # Important :
 If you are a regular user, just download the .zip file, extract it and run .exe file to use the application. No need to install it.
