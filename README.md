@@ -16,10 +16,10 @@ In the latest release, you can generate printable reports from the application. 
  # Features :
  1. This is an Offline application, so no need of an Internet connection.
  2. Basic Pension, Gratuity (Retiring and Death) and Leave Salary Calculators in one application.
- 3. Easy to use, just input required data and click on calculate button.
+ 3. Easy to use, just input required data and click on calculate button. Also you can generate reports and print them.
  4. Updated on the basis of the latest Govt. rules and orders (ROPA 2019).
  5. This application is completely free and open source.
 
 # Important :
 If you are a regular user, just download the .zip file, extract it and run .exe file to use the application. No need to install it.
-If you want to check the source code and want to build something better, please download the benefit_calculator.py file and its dependencies.
+If you want to check the source code and want to build something better, please download the benefit_calculator_ver-1.0.1.py file and its dependencies.
