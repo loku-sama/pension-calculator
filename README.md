@@ -9,7 +9,7 @@ In the latest release, you can generate printable reports from the application. 
  # How to Install :
   # For Windows OS :
     1. Download the zip archive file for Windows and unzip it. 
-    2. Run the windows exe(executable) file, no need to install the app.
+    2. Run the Basic_Retirement_Benefit_Calculator.exe (windows executable) file, no need to install the app.
   # For Linux OS :
     Coming Soon.
  
