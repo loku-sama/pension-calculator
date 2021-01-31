@@ -23,6 +23,7 @@ In the latest release, you can generate printable reports from the application. 
 # Important :
 If you are a regular user, just download the .zip file, extract it and run .exe file to use the application. No need to install it.
 If you want to check the source code and want to build something better, please download the benefit_calculator_ver-1.0.1.py file and its dependencies.
+For any suggestions or Bug reporting, please contact me at happysourav96@gmail.com
 
 # Contribuion :
 If you're new to contributing to Open Source on Github, <a href="https://guides.github.com/activities/contributing-to-open-source/">this guide</a> can help you get started. Please check out the <a href="https://github.com/covid19india/covid19india-react/blob/master/CONTRIBUTING.md">contribution guide</a> for more details on how issues and pull requests work.
