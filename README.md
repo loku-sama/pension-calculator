@@ -25,5 +25,10 @@ If you are a regular user, just download the .zip file, extract it and run .exe 
 If you want to check the source code and want to build something better, please download the benefit_calculator_ver-1.0.1.py file and its dependencies.
 For any suggestions or Bug reporting, please contact me at happysourav96@gmail.com
 
+# Screenshoots :
+<img src="https://sourceforge.net/p/pension-calculator/screenshot/home.PNG" alt="hom" height="400px" width="400px">      <img src="https://sourceforge.net/p/pension-calculator/screenshot/gra.PNG" alt="gratuity-calculator" height="400px" width="400px">
+<img src="https://sourceforge.net/p/pension-calculator/screenshot/pen.PNG" alt="pension-calculator" height="400px" width="400px">  <img src="https://sourceforge.net/p/pension-calculator/screenshot/leave.PNG" alt="pension-calculator" height="400px" width="400px">
+
+
 # Contribuion :
 If you're new to contributing to Open Source on Github, <a href="https://guides.github.com/activities/contributing-to-open-source/">this guide</a> can help you get started. Please check out the <a href="https://github.com/covid19india/covid19india-react/blob/master/CONTRIBUTING.md">contribution guide</a> for more details on how issues and pull requests work.
