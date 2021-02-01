@@ -31,4 +31,4 @@ For any suggestions or Bug reporting, please contact me at happysourav96@gmail.c
 
 
 # Contribuion :
-If you're new to contributing to Open Source on Github, <a href="https://guides.github.com/activities/contributing-to-open-source/">this guide</a> can help you get started. Please check out the <a href="https://github.com/covid19india/covid19india-react/blob/master/CONTRIBUTING.md">contribution guide</a> for more details on how issues and pull requests work.
+If you're new to contributing to Open Source on Github, <a href="https://guides.github.com/activities/contributing-to-open-source/">this guide</a> can help you get started. 
