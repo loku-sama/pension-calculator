@@ -2,7 +2,7 @@
  #############################################   READ ME   ############################################
  # A simple retirement benefit calculator app written in Python and for GUI I used PySimpleGUI module #
  # This application is open source under GNU License v.3.                                             #
- # For any feedback or bug reporting, contact me at github - https://github.com/loku-sama             #
+ # For any feedback or bug reporting, contact me at happysourav96@gmail.com                           #
  # Author : SOURAV (Loku), A newbie coder.                                                            #
  # Dependencies to run the code : 1. Python3                                                          #
  #                                2. PySimpleGUI module                                               #
