@@ -4,7 +4,10 @@ This app is not associated with Govt. of West Bengal. This app is for informatio
 This project is open source under GNU public lisence v3.0
 
 # Whats New :
-In the latest release, you can generate printable reports from the application. You can also convert the report to PDF.
+## Version 1.1.0 : 
+Now commuted value of pension calculation is added in the pension calculation section. Just input your age as on next birthday to get CVP amount as per applicable factors. Please refer G.O. No. 536-F(PEN) dated 01.10.2019 fore more information.
+## Other Changes:
+Latest release includes various bug fixes and improvements.
  
  # How to Install :
   # For Windows OS :
