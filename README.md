@@ -18,7 +18,7 @@ Latest release includes various bug fixes and improvements.
  
  # Features :
  1. This is an Offline application, so no need of an Internet connection.
- 2. Basic Pension, Gratuity (Retiring and Death) and Leave Salary Calculators in one application.
+ 2. Basic Pension, Family Pension, Commuted Value of Pension, Gratuity (Retiring and Death) and Leave Salary Calculators in one application.
  3. Easy to use, just input required data and click on calculate button. Also you can generate reports and print them.
  4. Updated on the basis of the latest Govt. rules and orders (ROPA 2019).
  5. This application is completely free and open source.
