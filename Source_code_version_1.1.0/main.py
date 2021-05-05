@@ -1,3 +1,16 @@
+"""
+ #############################################   READ ME   ############################################
+ # A simple retirement benefit calculator app written in Python and for GUI I used PySimpleGUI module #
+ # This application is open source under GNU License v.3.                                             #
+ # For any feedback or bug reporting, contact me at github - https://github.com/loku-sama             #
+ # Author : SOURAV (Loku), A newbie coder.                                                            #
+ # Dependencies to run the code : 1. Python3                                                          #
+ #                                2. PySimpleGUI module                                               #
+ #                                3. Dateutil module                                                  #
+ #                                4. Default datetime module                                          #
+ #                                5. jinja2 module to generate HTML reports                           #
+ ######################################################################################################
+"""
 import layout
 import pension
 import gratuity
@@ -51,7 +64,7 @@ while True:
         else:
             layout.sg.Popup("Please Enter Your Name.")
 
-    if event == "About":
+    if event == "About the App":
         layout.sg.popup("Basic Retirement Benefits Calculator for employees of Govt. of West Bengal.\nVersion - 1.1.0\n"
                         "App coded by SOURAV, Language- Python and a little HTML."
                         "\nApp programmed on the basis of latest Govt. rules and Orders."
@@ -61,7 +74,7 @@ while True:
                         "source code from Github. \nThis app will get updated in case of any change in rules and "
                         "orders. "
                         " Always download the latest release from the Github page.",
-                        title="About",
+                        title="About the Application",
                         icon=r'icon.ico', )
     if event == 'Fork Me on Github':
         layout.sg.webbrowser.open(url='https://github.com/loku-sama', new=2, )
@@ -73,12 +86,21 @@ while True:
         layout.sg.webbrowser.open(url='https://www.gnu.org/gnu/linux-and-gnu.html', new=2, )
     if event == 'python':
         layout.sg.webbrowser.open(url='https://www.python.org/', new=2, )
+    if event == "Contact Me":
+        layout.sg.popup("For any problem/bug reporting/help, please email me at - happysourav96@gmail.com \n"
+                        "You can also visit my website www.lokusden.neocities.org for more information.",
+                        title="Contact Me", icon=r'icon.ico', custom_text="Thank You")
 
     if event == "CALCULATE":
-        pension.pension_calculation_main(datetime.strptime(values["dojPick"], layout.format_date),
-                                         datetime.strptime(values["dorPick"], layout.format_date),
-                                         int(values['basic']), int(values['npa1']), int(values['comm']),
-                                         int(values['factor']))
+        try:
+            pension.pension_calculation_main(datetime.strptime(values["dojPick"], layout.format_date),
+                                             datetime.strptime(values["dorPick"], layout.format_date),
+                                             int(values['basic']), int(values['npa1']), int(values['comm']),
+                                             int(values['factor']))
+        except:
+            layout.sg.Popup("Please enter values in proper format.\n Ex- Dates in DD/MM/YYYY Format", title="Error!",
+                            icon=r'icon.ico')
+            layout.window['pen_report'].update(disabled=True)
 
     if event == "pen_report":
         try:
@@ -88,14 +110,19 @@ while True:
                                     "sp": values['q_service'], "cvp": values['cvp'], "age": values['factor']}
             pension.pension_report(template_var_pension)
         except:
-            layout.sg.Popup("Something went horribly wrong. Please try againg or report the bug.", title="Error!",
+            layout.sg.Popup("Something went horribly wrong. Please try again or report the bug.", title="Error!",
                             icon=r'icon.ico')
 
     if event == "cal_gra":
-        gratuity.gratuity_calculation_main(datetime.strptime(values["dojPick1"], layout.format_date),
-                                           datetime.strptime(values["dorPick1"], layout.format_date),
-                                           int(values['basic1']), int(values['da']), int(values['npa']),
-                                           )
+        try:
+            gratuity.gratuity_calculation_main(datetime.strptime(values["dojPick1"], layout.format_date),
+                                               datetime.strptime(values["dorPick1"], layout.format_date),
+                                               int(values['basic1']), int(values['da']), int(values['npa']),
+                                               )
+        except:
+            layout.sg.Popup("Please enter values in proper format.\n Ex- Dates in DD/MM/YYYY Format", title="Error!",
+                            icon=r'icon.ico')
+            layout.window['gra_report'].update(disabled=True)
     if event == "gra_report":
         try:
             template_var_gratuity = {"user_name": values['name'], "rg": values['Rgra'], "dg": values['Dgra'],
@@ -104,7 +131,7 @@ while True:
                                      "qs": values['xx1'], "sp": values['q_service1']}
             gratuity.gratuity_report(template_var_gratuity)
         except:
-            layout.sg.Popup("Something went horribly wrong. Please try againg or report the bug.", title="Error!",
+            layout.sg.Popup("Something went horribly wrong. Please try again or report the bug.", title="Error!",
                             icon=r'icon.ico')
 
     if event == "wbhs-no":
@@ -115,8 +142,13 @@ while True:
         layout.window["ma"].update(ma)
 
     if event == "cal_leave":
-        leave_salary.leave_salary_calculation_main(int(values['basic2']), int(values['da1']), int(values['ma']),
-                                                   int(values['leave-due']), values['wbhs-no'])
+        try:
+            leave_salary.leave_salary_calculation_main(int(values['basic2']), int(values['da1']), int(values['ma']),
+                                                       int(values['leave-due']), values['wbhs-no'])
+        except:
+            layout.sg.Popup("Please enter values in proper format.", title="Error!",
+                            icon=r'icon.ico')
+            layout.window['leave_report'].update(disabled=True)
 
     if event == "leave_report":
         try:
@@ -124,8 +156,7 @@ while True:
                                   "leave_sal": values['leave-sal']}
             leave_salary.leave_salary_report(template_var_leave)
         except:
-            layout.sg.Popup("Something went horribly wrong. Please try againg or report the bug.", title="Error!",
+            layout.sg.Popup("Something went horribly wrong. Please try again or report the bug.", title="Error!",
                             icon=r'icon.ico')
-
 
 layout.window.close()
