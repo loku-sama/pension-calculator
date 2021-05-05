@@ -1,4 +1,10 @@
-from dateutil import relativedelta
+"""
+##############################################   READ ME   ############################################
+Leave Salary Calulator Function File
+Author - Sourav(Loku)
+
+#######################################################################################################
+"""
 import layout
 
 
@@ -45,9 +51,7 @@ def leave_salary_calculation_main(basic_pay, da, ma, leave_due, wbhs):
         calculate_leave_salary(total_pay, leave_due)
         layout.window['leave_report'].update(disabled=False)
     except:
-        layout.sg.Popup("Please enter values in proper format.", title="Error!",
-                        icon=r'icon.ico')
-        layout.window['leave_report'].update(disabled=True)
+        pass
 
 
 def leave_salary_report(template_var_leave):
