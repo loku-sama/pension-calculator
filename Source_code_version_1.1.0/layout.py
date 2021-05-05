@@ -29,7 +29,9 @@ menu_def = [
      [
          'Rules and Orders',
          '---',
-         'About',
+         'About the App',
+         '---',
+         'Contact Me',
          '---',
          'Fork Me on Github',
          '---',
@@ -40,7 +42,7 @@ menu_def = [
 
 # App home page layout
 home_layout = [
-    [sg.Text("Basic Retirement Benefits Calculator ( As per ROPA 2019)", size=(700, 3), justification="center",
+    [sg.Text("Basic Retirement Benefits Calculator ( As per ROPA 2019)", size=(700, 2), justification="center",
              font=(20)),
      ],
     [sg.Text("", size=(27, 5)), sg.Button("Pension", size=(30, 3), key="pen", )],
@@ -51,10 +53,9 @@ home_layout = [
      sg.Text("", size=(60, 1)),
      sg.Image(r'gnu-linux.png', enable_events=True, key='gnu', tooltip="Click here to know more!")
      ],
-    # [sg.Text("How to use :", font=(0.5), size=(65, 1)), sg.Button(button_text="Source Code", key="git",
-    # tooltip="Click here to check the source code.")],
-    [sg.Text("1. This is an OFFLINE app, so no need of Internet Connection. Just select any type of calculator from the"
-             " main menu.\n2. Enter valid data in the given input fields and click CALCULATE button."
+    [sg.Text("How to use :", font=(0.5), size=(65, 1)), ],
+    [sg.Text("1. This is an OFFLINE app, so no need of an Internet Connection. Just select any type of calculator from "
+             "the main menu.\n2. Enter valid data in the given input fields and click CALCULATE button."
              "\n3. Check your results in the output "
              "fields, As simple as that. More features will be added in future releases.")],
     [sg.Text("Notice :", font=(0.5))],
@@ -307,8 +308,8 @@ leave_second_column = [
 leave_footer = [
     [sg.HSeparator()],
     [sg.Text("Important Notes : ", font=(1))],
-    [sg.Text("1. After retirement or death of a Government Employee his/her utilized earned leaves may be encashed up "
-             "to 300 days.")],
+    [sg.Text("1. After retirement or death of a Government Employee, his/her un-utilized earned leaves may be "
+             "encashed for a \n    period up to 300 days.")],
     [sg.Text(
         "2. Leave salary calculation should be done on the basis of last month's pay of the employee.")],
     [sg.Text(
