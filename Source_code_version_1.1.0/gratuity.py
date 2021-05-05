@@ -1,3 +1,11 @@
+"""
+##############################################   READ ME   ############################################
+Gratuity Calulator Function File
+Author - Sourav(Loku)
+
+#######################################################################################################
+"""
+
 from dateutil import relativedelta
 import layout
 
@@ -84,9 +92,7 @@ def gratuity_calculation_main(doa, dor, basic_pay, da, oth):
         layout.window['gra_report'].update(disabled=False)
 
     except:
-        layout.sg.Popup("Please enter values in proper format.\n Ex- Dates in DD/MM/YYYY Format", title="Error!",
-                        icon=r'icon.ico')
-        layout.window['pen_report'].update(disabled=True)
+        pass
 
 
 def gratuity_report(template_var_gratuity):
