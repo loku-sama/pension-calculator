@@ -30,8 +30,8 @@ If you want to check the source code and want to build something better, please 
 For any suggestions or Bug reporting, please contact me at happysourav96@gmail.com
 
 # Screenshoots :
-<img src="https://sourceforge.net/p/pension-calculator/screenshot/home.PNG" alt="hom" height="400px" width="400px">      <img src="https://sourceforge.net/p/pension-calculator/screenshot/gra.PNG" alt="gratuity-calculator" height="400px" width="400px">
-<img src="https://sourceforge.net/p/pension-calculator/screenshot/pen.PNG" alt="pension-calculator" height="400px" width="400px">  <img src="https://sourceforge.net/p/pension-calculator/screenshot/leave.PNG" alt="pension-calculator" height="400px" width="400px">
+<img src="https://sourceforge.net/p/pension-calculator/screenshot/new home.PNG" alt="hom" height="400px" width="400px">      <img src="https://sourceforge.net/p/pension-calculator/screenshot/gra.PNG" alt="gratuity-calculator" height="400px" width="400px">
+<img src="https://sourceforge.net/p/pension-calculator/screenshot/pension_new.PNG" alt="pension-calculator" height="400px" width="400px">  <img src="https://sourceforge.net/p/pension-calculator/screenshot/leave.PNG" alt="pension-calculator" height="400px" width="400px">
 
 
 # Contribuion :
