@@ -1,3 +1,11 @@
+"""
+##############################################   READ ME   ############################################
+Pension Calulator Function File
+Author - Sourav(Loku)
+
+#######################################################################################################
+"""
+
 from dateutil import relativedelta
 import layout
 
@@ -63,20 +71,20 @@ def pension_calculation_main(doa, dor, basic_pay, npa, com, age):
 
         commutation = check_commutation(com)
 
-        def get_pension(a, b):
+        def get_pension(a, b, qsm):
             """ Function for calculating basic pension. """
             bp = 0
-            if 20 < qua_service_in_months < 40 and b <= 40:
-                bp = ((a / 2) * qua_service_in_months) / 40
-            elif qua_service_in_months >= 40 and b <= 40:
+            if 20 < qsm < 40 and b <= 40:
+                bp = ((a / 2) * qsm) / 40
+            elif qsm >= 40 and b <= 40:
                 bp = a / 2
-            elif qua_service_in_months > 20 and b > 40:
-                bp = ((a / 2) * qua_service_in_months) / 40
-            elif qua_service_in_months >= 40 and b > 40:
+            elif qsm > 20 and b > 40:
+                bp = ((a / 2) * qsm) / 40
+            elif qsm >= 40 and b > 40:
                 bp = a / 2
             return bp
 
-        basic_pension = get_pension(total_pay, commutation)
+        basic_pension = get_pension(total_pay, commutation, qua_service_in_months)
 
         def determine_basic_pension(pen):
             """ Function for calculating minimum and maximum pension limit. """
@@ -154,9 +162,7 @@ def pension_calculation_main(doa, dor, basic_pay, npa, com, age):
         layout.window['cvp'].update(comm_value)
         layout.window['pen_report'].update(disabled=False)
     except:
-        layout.sg.Popup("Please enter values in proper format.\n Ex- Dates in DD/MM/YYYY Format", title="Error!",
-                        icon=r'icon.ico')
-        layout.window['pen_report'].update(disabled=True)
+        pass
 
 
 def pension_report(template_var_pension):
