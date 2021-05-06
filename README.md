@@ -6,7 +6,7 @@ This project is open source under GNU public lisence v3.0
 
 # Whats New :
 ## Version 1.1.0 : 
-Now commuted value of pension calculation is added in the pension calculation section. Just input your age as on next birthday to get CVP amount as per applicable factors. Please refer G.O. No. 536-F(PEN) dated 01.10.2019 fore more information.
+Now commuted value of pension calculation is added in the pension calculation section. Just input your age as on next birthday to get CVP amount as per applicable factors. Please refer G.O. No. 536-F(PEN) dated 01.10.2019 for more information.
 ## Other Changes:
 Latest release includes various bug fixes and improvements.
  
