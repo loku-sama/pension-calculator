@@ -51,9 +51,7 @@ while True:
                         "to modify the software, to share possibly modified copies of the software. Software which "
                         "meets these requirements is termed free software. The word 'free' is ambiguous in English, "
                         "although in this context, it means 'free as in freedom', not 'free as in zero price'."
-                        "\nSource: Wikipedia", title="Free "
-                                                     "Software Movement", custom_text="Close",
-                        icon=r'icon.ico', )
+                        "\nSource: Wikipedia", title="Free Software Movement", custom_text="Close", icon=r'icon.ico', )
     if event == 'Know More':
         layout.sg.webbrowser.open(url='https://en.wikipedia.org/wiki/Free_software_movement', new=2)
 
@@ -69,13 +67,9 @@ while True:
                         "App coded by SOURAV, Language- Python and a little HTML."
                         "\nApp programmed on the basis of latest Govt. rules and Orders."
                         "\nThis is for informational purpose only. Please refer original Rules and Orders thoroughly.\n"
-                        "This application is Open Source and licensed under GNU Public License V.3. You can download "
-                        "the "
-                        "source code from Github. \nThis app will get updated in case of any change in rules and "
-                        "orders. "
-                        " Always download the latest release from the Github page.",
-                        title="About the Application",
-                        icon=r'icon.ico', )
+                        "This application is Open Source and licensed under GNU Public License V.3. You can download the "
+                        "source code from Github. \nThis app will get updated in case of any change in rules and orders. "
+                        " Always download the latest release from the Github page.", title="About the Application", icon=r'icon.ico', )
     if event == 'Fork Me on Github':
         layout.sg.webbrowser.open(url='https://github.com/loku-sama', new=2, )
     if event == 'Check for Updates':
