@@ -6,18 +6,18 @@ Author - Sourav(Loku)
 #######################################################################################################
 """
 
-from dateutil import relativedelta
-import layout
+from dateutil import relativedelta  # Importing Dateuti package for getting values between dates
+import layout   # Importing layout file
 
 
 def pension_calculation_main(doa, dor, basic_pay, npa, com, age):
     try:
-        diff = relativedelta.relativedelta(dor, doa)
-        year = diff.years
-        mon = diff.months
-        days = diff.days
-        six_monthly_installament = year * 2
-        total_pay = basic_pay + npa
+        diff = relativedelta.relativedelta(dor, doa)  # Calculating difference between Date of retirement/death and date of joining.
+        year = diff.years   # Getting difference of years
+        mon = diff.months   # Getting difference of months
+        days = diff.days    # Getting difference of days
+        six_monthly_installament = year * 2   # Converting difference of years in 6 monthly instalments
+        total_pay = basic_pay + npa    # calculating total pay
 
         def qualifying_ins_calculation(mon, six_ins):
             """ Function for calculating the net qualifying service period in 6 monthly installments. """
