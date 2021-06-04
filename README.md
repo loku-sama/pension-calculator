@@ -12,7 +12,7 @@ Latest release includes various bug fixes and improvements.
  
  # How to Install :
   # For Windows OS :
-   1. Download the zip archive file for Windows from above or <a href="https://github.com/loku-sama/pension-calculator/raw/main/Basic_Retirement_Benefit_Calculator_ver_1.0.1(Windows).zip">CLICK HERE to download version 1.0.1</a> or <a href="https://github.com/loku-sama/pension-calculator/releases/download/1.1.0/Basic_Retirement_Benefits_Calculator_ver_1.1.0.zip"> CLICK HERE to download version 1.1.0 (Latest)</a> and unzip it. 
+   1. Download the zip archive file for Windows by <a href="https://github.com/loku-sama/pension-calculator/releases/download/1.1.0/Basic_Retirement_Benefits_Calculator_ver_1.1.0.zip"> CLICKING HERE (Latest)</a> and unzip it. 
    2. Run the Basic_Retirement_Benefit_Calculator.exe (windows executable) file, no need to install the app.
   # For Linux OS :
     Coming Soon.
