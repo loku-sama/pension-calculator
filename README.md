@@ -40,7 +40,8 @@ For any suggestions or Bug reporting, please contact me at happysourav96@gmail.c
   pip install requirements.txt
   ```
 3. Now go to the parent folder and open terminal there. You must put the 'templates' folder in the parant directory.
-4. Now run the following command -
+4. Move all the files from assets folder into the main directory.
+5. Now run the following command -
 ```python
 python main.py
 ```
