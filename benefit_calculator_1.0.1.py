@@ -1,4 +1,4 @@
-"""
+""" 
  #############################################   READ ME   ############################################
  # A simple retirement benefit calculator app written in Python and for GUI I used PySimpleGUI module #
  # This application is open source under GNU License v.3.                                             #
