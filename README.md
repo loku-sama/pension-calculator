@@ -34,7 +34,7 @@ Latest release includes various bug fixes and improvements.
 
 # Important :
 If you are a regular user, just download the .zip file, extract it and run .exe file to use the application. No need to install it.
-If you want to check the source code and want to build something better, please download the benefit_calculator_ver-1.0.1.py file or the new source_code_ver_1.1.0 files and run the 'main.py' along with its dependencies.
+If you want to check the source code and want to build something better, please download the benefit_calculator_ver-1.0.1.py file or the new source_code_ver_1.2.0 files and run the 'main.py' along with its dependencies.
 For any suggestions or Bug reporting, please contact me at happysourav96@gmail.com
 
 # Screenshoots :
