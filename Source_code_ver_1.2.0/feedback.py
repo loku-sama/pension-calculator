@@ -21,13 +21,13 @@ class Feedback:
     def send_feedback(self, user_name, user_email, user_feedback):
         """" Function for sending the feedback """
         try:
-            server = smtplib.SMTP("smtp.office365.com", 587)  # SMTP Server IP and Port of your provider
+            server = smtplib.SMTP("your SMTP server", 000)  # SMTP Server IP and Port of your provider
             server.ehlo()  # Optional
             server.starttls(context=self.context)  # Starts TLS handshake
             server.login(self.login_id, self.password)  # Signing to your account
             email_body = f"Name : {user_name}\nemail : {user_email}\nFeedback : {user_feedback}"
             SUBJECT = 'Feedback of Retirement Benefit Calculator ver 1.2.0'
-            TO = 'happysourav96@gmail.com'
+            TO = 'receiver email id'
             FROM = self.login_id  # Mail id from where feedback will be sent
             msg = MIMEText(email_body)  # Mail body
             msg['Subject'] = SUBJECT  # Mail Subject
