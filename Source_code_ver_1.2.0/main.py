@@ -161,7 +161,7 @@ while True:
                 internet = feedback.connect()
                 if internet:
                     try:
-                        feed_back = feedback.Feedback("loku-sama@outlook.com", "pa&ao@t1")
+                        feed_back = feedback.Feedback("your mail id", "your password")
                         result = feed_back.send_feedback(values['feedback_name'], values['feedback_email'],
                                                          values['feedback_body'])
                         if result:
