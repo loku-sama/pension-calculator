@@ -42,7 +42,7 @@ For any suggestions or Bug reporting, please contact me at happysourav96@gmail.c
 <img src="https://sourceforge.net/p/pension-calculator/screenshot/pension_new.PNG" alt="pension-calculator" height="400px" width="400px">  <img src="https://sourceforge.net/p/pension-calculator/screenshot/leave.PNG" alt="pension-calculator" height="400px" width="400px">
 
 # How to Run the Source Code :
-1. First download all the source_code_ver_1.1.0 files (including the requirements.txt file) and install python3 if you dont have it.
+1. First download all the source_code_ver_1.2.0 files (including the requirements.txt file) and install python3 if you dont have it.
 2. Run the following command in your terminal to install all the required dependencies at once.
   ```python
   pip install requirements.txt
