@@ -1,6 +1,6 @@
 """
 ##############################################   READ ME   ############################################
-Leave Salary Calulator Function File
+Leave Salary Calculator Function File
 Author - Sourav(Loku)
 
 #######################################################################################################
@@ -9,11 +9,30 @@ import layout
 
 
 def leave_salary_calculation_main(basic_pay, da, ma, leave_due, wbhs):
+    """ Main Leave Salary calculator function.
+
+    :param basic_pay: Basic pay entered by user
+    :type basic_pay: int
+    :param da: DA entered by user (if any)
+    :type da: int
+    :param ma: Medical Allowance (Rs. 500) if any.
+    :type ma: int
+    :param leave_due: Outstanding Earned Leave balance at the time of retirement or Death (Maximum 300)
+    :type leave_due: int
+    :param wbhs: Checkbox if WBHS Yes or No
+    :type wbhs: bool
+    """
     try:
         total_pay = basic_pay + da + ma
 
         def check_basic_pay(n):
-            """ Function for checking minimum basic pay as per ROPA 2019. """
+            """ Function for checking the minimum basic pay as per ROPA 2019.
+
+            :param n: Basic Pay entered by User
+            :type n: int
+            :return: Basic Pay is it is greater than 17000 else shows an error message.
+            :rtype: int
+            """
             if n < 17000:
                 layout.sg.Popup("Basic Pay can not be less than Rs.17000 as per ROPA 2019", title="Error!",
                                 icon=r'icon.ico')
@@ -34,7 +53,15 @@ def leave_salary_calculation_main(basic_pay, da, ma, leave_due, wbhs):
         layout.window['total-pay'].update(total_pay)
 
         def calculate_leave_salary(tp, leave):
-            """ Function for calculating leave salary amount. """
+            """  Function for calculating leave salary amount.
+
+            :param tp: Total pay
+            :type tp: int
+            :param leave: Amount of Leave
+            :type leave: int
+            :return: Leave Salary encashment amount as per Govt. rules.
+            :rtype: int
+            """
             leave_salary = 0
             if leave_due > 300:
                 layout.sg.Popup("Maximum leave due can not exceed 300 days.", title="Error!",
@@ -55,7 +82,11 @@ def leave_salary_calculation_main(basic_pay, da, ma, leave_due, wbhs):
 
 
 def leave_salary_report(template_var_leave):
-    """ Function to generate report """
+    """  Function to generate report
+
+    :param template_var_leave: List of Values as Dictionary to be rendered in the HTML template file.
+    :type template_var_leave: dict
+    """
     html_out = layout.template_leave.render(template_var_leave)
     file_name = f"leave_salary_report_{layout.time_stamp}.html"  # Makes a dynamic filename everytime
     with open(f"./reports/{file_name}", "w") as f:
