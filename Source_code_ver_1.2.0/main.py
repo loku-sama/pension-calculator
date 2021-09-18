@@ -26,7 +26,11 @@ curr_z = 0
 
 
 def check_update():
-    """ Function to check the app Updates """
+    """  Function to check the app Updates
+
+    :return: True or False
+    :rtype: bool
+    """
     try:
         response = requests.get("https://api.github.com/repos/loku-sama/pension-calculator/releases/latest")
         # Getting the latest release version from GitHub API
@@ -120,8 +124,7 @@ while True:
                         "\nThis is for informational purpose only. Please refer original Rules and Orders thoroughly.\n"
                         "This application is Open Source and licensed under GNU Public License V.3. You can download "
                         "the source code from Github. \nThis app will get updated in case of any change in rules and "
-                        "orders. Always download the latest release from the Github page.",
-                        title="About the Application",
+                        "orders. Always download the latest release from the Github page.", title="About the Application",
                         icon=r'icon.ico', )
     if event == 'Fork Me on Github':
         layout.sg.webbrowser.open(url='https://github.com/loku-sama', new=2, )
@@ -161,7 +164,7 @@ while True:
                 internet = feedback.connect()
                 if internet:
                     try:
-                        feed_back = feedback.Feedback("your mail id", "your password")
+                        feed_back = feedback.Feedback("loku-sama@outlook.com", "pa&ao@t1")
                         result = feed_back.send_feedback(values['feedback_name'], values['feedback_email'],
                                                          values['feedback_body'])
                         if result:
