@@ -11,6 +11,21 @@ import layout
 
 
 def pension_calculation_main(doa, dor, basic_pay, npa, com, age):
+    """ Main Pension Calculator function
+
+    :param doa: Date of joining as string
+    :type doa: date
+    :param dor: Date of Retirement or Death as string
+    :type dor: date
+    :param basic_pay: Last Basic Pay (Must be greater than 17000)
+    :type basic_pay: int
+    :param npa: Other Allowances (if any)
+    :type npa: int
+    :param com: % of Commutation (Must be less than 40)
+    :type com: int
+    :param age: Age as on next birthday (Should be between 21 to 82)
+    :type age: int
+    """
     try:
         diff = relativedelta.relativedelta(dor, doa)
         year = diff.years
@@ -20,7 +35,15 @@ def pension_calculation_main(doa, dor, basic_pay, npa, com, age):
         total_pay = basic_pay + npa
 
         def qualifying_ins_calculation(mon, six_ins):
-            """ Function for calculating the net qualifying service period in 6 monthly installments. """
+            """ Function for calculating the net qualifying service period in 6 monthly installments.
+
+            :param mon: Total No. of months
+            :type mon: int
+            :param six_ins: Six monthly instalments (mon * 2)
+            :type six_ins: int
+            :return: Qualifying Service period as per Govt. rules
+            :rtype: int
+            """
             if (mon >= 3) and (mon < 6):
                 qua_service_in_months = six_ins + 1
             elif (mon >= 6) and (mon < 9):
@@ -34,7 +57,13 @@ def pension_calculation_main(doa, dor, basic_pay, npa, com, age):
         qua_service_in_months = qualifying_ins_calculation(mon, six_monthly_installament)
 
         def check_basic_pay(n):
-            """ Function for checking the minimum basic pay as per ROPA 2019. """
+            """ Function for checking the minimum basic pay as per ROPA 2019.
+
+            :param n: Basic Pay entered by User
+            :type n: int
+            :return: Basic Pay is it is greater than 17000 else shows an error message.
+            :rtype: int
+            """
             if n < 17000:
                 layout.sg.Popup("Basic Pay can not be less than Rs.17000 as per ROPA 2019", title="Error!",
                                 icon=r'icon.ico')
@@ -60,7 +89,13 @@ def pension_calculation_main(doa, dor, basic_pay, npa, com, age):
             layout.window['xx'].update(qua_service_in_months)
 
         def check_commutation(com):
-            """ Function for checking the pension commutation limits as per ROPA 2019. """
+            """  Function for checking the pension commutation limits as per ROPA 2019.
+
+            :param com: % of Commutation entered by User
+            :type com: int
+            :return: % of Commutation if it is under 40 else shows an Error.
+            :rtype: int
+            """
             if com > 40:
                 layout.sg.Popup("Commutation must not exceed 40%. Try again.", title="Error!",
                                 icon=r'icon.ico')
@@ -73,7 +108,17 @@ def pension_calculation_main(doa, dor, basic_pay, npa, com, age):
         commutation = check_commutation(com)
 
         def get_pension(a, b, qsm):
-            """ Function for calculating basic pension. """
+            """  Function for calculating basic pension.
+
+            :param a: Basic Pay + Other Allowances (if any)
+            :type a: int
+            :param b: % of Commutation
+            :type b: int
+            :param qsm: Qualifing Service period calculated above
+            :type qsm: int
+            :return: Amount of Basic Pension as per Govt. Rules
+            :rtype: int
+            """
             bp = 0
             if 20 < qsm < 40 and b <= 40:
                 bp = ((a / 2) * qsm) / 40
@@ -88,7 +133,13 @@ def pension_calculation_main(doa, dor, basic_pay, npa, com, age):
         basic_pension = get_pension(total_pay, commutation, qua_service_in_months)
 
         def determine_basic_pension(pen):
-            """ Function for calculating minimum and maximum pension limit. """
+            """ Function for calculating minimum and maximum pension limit.
+
+            :param pen: Basic pension calculated above
+            :type pen: int
+            :return: Limits Basic pension as per Govt. rules
+            :rtype: int
+            """
             if pen < 8500 and year >= 10 and basic_pay >= 17000:
                 bpen = 8500
             elif pen > 100500 and year >= 10 and basic_pay >= 17000:
@@ -103,7 +154,15 @@ def pension_calculation_main(doa, dor, basic_pay, npa, com, age):
         final_basic_pension = determine_basic_pension(basic_pension)
 
         def determine_reduced_pension(pen, comm):
-            """ Function for calculating reduced basic pension. """
+            """  Function for calculating reduced basic pension.
+
+            :param pen: Basic Pension after limitation from above
+            :type pen: int
+            :param comm: % of commutation
+            :type comm: int
+            :return: Reduced Pension after deducting commutation from basic pension
+            :rtype: int
+            """
             pension = 0
             if comm == 0:
                 pension = round(pen)
@@ -116,7 +175,13 @@ def pension_calculation_main(doa, dor, basic_pay, npa, com, age):
         layout.window['Rpen'].update(determine_reduced_pension(final_basic_pension, commutation))
 
         def get_family_pension(pay):
-            """ Function for calculating Family pension. """
+            """  Function for calculating Family pension.
+
+            :param pay: Basic Pay + Other Allowances (if any)
+            :type pay: int
+            :return: Amount of Family Pension as per Govt. rules.
+            :rtype: int
+            """
             if basic_pay >= 17000 and (year < 10 or year >= 10):
                 family_pension = pay * 30 / 100
                 if family_pension < 8500:
@@ -138,7 +203,11 @@ def pension_calculation_main(doa, dor, basic_pay, npa, com, age):
         layout.window['Fpen'].update(get_family_pension(total_pay))
 
         def get_cvp():
-            """ Function for calculating Commuted value of pension. """
+            """  Function for calculating Commuted value of pension.
+
+            :return: Amount of Total Commuted Value of Pension
+            :rtype: int
+            """
             if age < 20 or age > 81:
                 layout.sg.Popup("Age as on next Birthday must be between 20 to 81.", title="Error", icon=r'icon.ico')
                 cvp = 0
@@ -167,7 +236,11 @@ def pension_calculation_main(doa, dor, basic_pay, npa, com, age):
 
 
 def pension_report(template_var_pension):
-    """ Function to generate report """
+    """  Function to generate report
+
+    :param template_var_pension: List of Values as Dictionary to be rendered in the HTML template file.
+    :type template_var_pension: dict
+    """
     html_out = layout.template_pen.render(template_var_pension)
     file_name = f"pension_report_{layout.time_stamp}.html"  # Makes a dynamic filename everytime
     with open(f"./reports/{file_name}", "w") as f:
