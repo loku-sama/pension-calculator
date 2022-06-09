@@ -38,7 +38,7 @@ If you are a regular user, just download the .zip file, extract it and run .exe 
 If you want to check the source code and want to build something better, please download the benefit_calculator_ver-1.0.1.py file or the new source_code_ver_1.2.0 files and run the 'main.py' along with its dependencies.
 For any suggestions or Bug reporting, please contact me at happysourav96@gmail.com
 
-# Screenshoots :
+# Screenshots :
 <img src="https://sourceforge.net/p/pension-calculator/screenshot/new home.PNG" alt="hom" height="400px" width="400px">      <img src="https://sourceforge.net/p/pension-calculator/screenshot/gra.PNG" alt="gratuity-calculator" height="400px" width="400px">
 <img src="https://sourceforge.net/p/pension-calculator/screenshot/pension_new.PNG" alt="pension-calculator" height="400px" width="400px">  <img src="https://sourceforge.net/p/pension-calculator/screenshot/leave.PNG" alt="pension-calculator" height="400px" width="400px">
 
