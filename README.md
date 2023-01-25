@@ -11,7 +11,7 @@ This project is open source under GNU public lisence v3.0
 
 2. Update Checker : In the latest release, an autometic update checker is added to the app. It will check for any new releases from GitHub api and notify you. Also you can check manually for any updates from the Help menu. (You will need an active Internet connection for that.)
 
-3. Feedback Option : Now you can directly submit any feedback about the application from Contact Me menu.
+3. Feedback Option : Now you can directly submit any feedback about the application from Contact menu.
 
 ## Version 1.1.0 : 
 Now commuted value of pension calculation is added in the pension calculation section. Just input your age as on next birthday to get CVP amount as per applicable factors. Please refer G.O. No. 536-F(PEN) dated 01.10.2019 for more information.
